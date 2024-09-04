@@ -1,0 +1,31 @@
+<!-- report.component.html -->
+<div class="report-container">
+  <div class="filter-section">
+    
+    <p-calendar [(ngModel)]="selectedDate" dateFormat="yy-mm-dd"></p-calendar>
+    <button pButton type="button" label="Filtre Uygula" icon="pi pi-filter"></button>
+  </div>
+
+  <div class="report-cards">
+    <div class="report-card">
+      <i class="pi pi-money-bill"></i>
+      <p>Nakit Satış</p>
+      <p>0 ₺</p>
+      <p>0 ÜRÜN</p>
+    </div>
+    <div class="report-card">
+      <i class="pi pi-credit-card"></i>
+      <p>Kredi Kartı</p>
+      <p>{{ totalRevenue }} ₺</p>
+      <p>{{ totalProduct }} ÜRÜN</p>
+    </div>
+    <div class="report-card total-revenue">
+      <i class="pi pi-calculator"></i>
+      <p>Toplam Ciro</p>
+      <p>{{ totalRevenue }} ₺</p>
+      <p>{{ totalProduct }} ÜRÜN</p>
+    </div>
+  </div>
+  
+  <button pButton type="button" label="Excel İndir" icon="pi pi-file-excel"></button>
+</div>

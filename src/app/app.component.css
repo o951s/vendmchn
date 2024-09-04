@@ -1,0 +1,16 @@
+.container {
+    margin-top: 20px;
+  }
+  
+  .header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+  }
+  
+  .total-revenue {
+    font-size: 1.2em;
+    font-weight: bold;
+  }
+  

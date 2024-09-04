@@ -1,0 +1,19 @@
+<div class="container my-5">
+  <div class="row">
+    <div class="col-lg-4 col-md-6 mb-4" *ngFor="let machine of vendingMachines">
+      <div class="card shadow-sm border-0 rounded">
+        <div class="card-body">
+          <h5 class="card-title">{{ machine.productName }}</h5>
+          <p class="card-text">Spiral Numarası: {{ machine.spiralNumber }}</p>
+          <p class="card-text">Satış Adet: {{ machine.salesCount }}</p>
+          <p class="card-text">Zaman: {{ machine.time }}</p>
+          <p class="card-text">Otomat: {{ machine.machineName }}</p>
+          <p class="card-text">Ödeme Yöntemi: {{ machine.paymentMethod }}</p>
+          <p class="card-text">İndirimli: {{ machine.discount ? 'Evet' : 'Hayır' }}</p>
+          <p class="card-text">Satış Fiyatı: {{ machine.salesPrice | currency:'TRY' }}</p>
+          <p class="card-text font-weight-bold">Sonuç: {{ machine.result }}</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
