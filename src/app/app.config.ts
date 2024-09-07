@@ -6,15 +6,21 @@ import { HttpClientModule, provideHttpClient } from '@angular/common/http'; // H
 import { AppComponent } from './app.component';
 import { withFetch } from '@angular/common/http';
 import { CommonModule } from '@angular/common';
+import { provideAnimations } from '@angular/platform-browser/animations';
+import {provideAnimationsAsync} from"@angular/platform-browser/animations/async"
 
 export const appConfig: ApplicationConfig = {
   providers: [
+    provideAnimations(),
+    provideRouter(routes),
+    provideAnimationsAsync(),
     provideHttpClient(withFetch()),
     provideZoneChangeDetection({ eventCoalescing: true }),
     provideRouter(routes),
     provideClientHydration(),
     importProvidersFrom(HttpClientModule), // Provide HttpClientModule correctly
     importProvidersFrom(CommonModule), // Import CommonModule as well
+    
   ]
 };
 

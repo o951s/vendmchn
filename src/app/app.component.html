@@ -1,38 +1,68 @@
 <app-report></app-report>
 
+<div class="mb-3">
+  <p-button 
+      type="button" 
+      icon="pi pi-chevron-left" 
+      (onClick)="prev()" 
+      [disabled]="isFirstPage()" 
+      styleClass="p-button-text" />
+  <p-button 
+      type="button"
+      icon="pi pi-refresh" 
+      (onClick)="reset()" 
+      styleClass="p-button-text" />
+  <p-button 
+      type="button" 
+      icon="pi pi-chevron-right" 
+      (onClick)="next()" 
+      [disabled]="isLastPage()" 
+      styleClass="p-button-text" />
+</div>
 <div class="card">
-  <p-table 
-      [value]="vendingMachines" 
-      styleClass="p-datatable-striped" 
-      [tableStyle]="{'min-width': '50rem'}">
-          <ng-template pTemplate="header">
-              <tr>
-                  <th>Ürün Adı</th>
-                  <th>Spiral Numarası</th>
-                  <th>Satış Adedi</th>
-                  <th>Zaman</th>
-                  <th>Otomat</th>
-                  <th>Ödeme Yöntemi</th>
-                  <th>İndirim</th>
-                  <th>Satış Fiyatı</th>
-                  <th>Sonuç</th>
-              </tr>
-          </ng-template>
-          <ng-template pTemplate="body" let-machine>
-              <tr>
-                <td>{{ machine.productName }}</td>
-                <td>{{ machine.spiralNumber }}</td>
-                <td>{{ machine.salesCount }}</td>
-                <td>{{ machine.time }}</td>
-                <td>{{ machine.machineName }}</td>
-                <td>{{ machine.paymentMethod }}</td>
-                <td [ngStyle]="{color: machine.discount ? '#4caf50' : '#f44336'}">{{ machine.discount ? 'Evet' : 'Hayır' }}</td>
-                <td>{{ machine.salesPrice }} ₺</td>
-                <td>{{ machine.result }}</td>
-              </tr>
-          </ng-template>
+  <p-table
+      [value]="vendingMachines"
+      [paginator]="true"
+      [rows]="5"
+      [first]="first"
+      [showCurrentPageReport]="true"
+      [tableStyle]="{ 'min-width': '50rem' }"
+      currentPageReportTemplate="Showing {first} to {last} of {totalRecords} entries"
+      (onPage)="pageChange($event)"
+      [rowsPerPageOptions]="[10, 25, 50]"
+  >
+      <ng-template pTemplate="header">
+          <tr>
+              <th style="width:10%">Ürün Adı</th>
+              <th style="width:9%">Spiral Numarası</th>
+              <th style="width:9%">Satış Adedi</th>
+              <th style="width:9%">Zaman</th>
+              <th style="width:9%">Otomat</th>
+              <th style="width:9%">Ödeme Yöntemi</th>
+              <th style="width:9%">İndirim</th>
+              <th style="width:9%">Satış Fiyatı</th>
+              <th style="width:9%">Sonuç</th>
+          </tr>
+      </ng-template>
+      <ng-template pTemplate="body" let-machine>
+          <tr>
+            <td>{{ machine.productName }}</td>
+            <td>{{ machine.spiralNumber }}</td>
+            <td>{{ machine.salesCount }}</td>
+            <td>{{ machine.time }}</td>
+            <td>{{ machine.machineName }}</td>
+            <td>{{ machine.paymentMethod }}</td>
+            <td [ngStyle]="{color: machine.discount ? '#4caf50' : '#f44336'}">{{ machine.discount ? 'Evet' : 'Hayır' }}</td>
+            <td>{{ machine.salesPrice }} ₺</td>
+            <td>{{ machine.result }}</td>
+          </tr>
+      </ng-template>
+      <ng-template pTemplate="paginatorleft">
+          <p-button type="button" icon="pi pi-plus" styleClass="p-button-text" />
+      </ng-template>
+      <ng-template pTemplate="paginatorright">
+          <p-button type="button" icon="pi pi-cloud" styleClass="p-button-text" />
+      </ng-template>
   </p-table>
 </div>
-
-
 
