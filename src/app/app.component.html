@@ -1,36 +1,38 @@
 <app-report></app-report>
-<div class="container" style="background-color: #8d8a8a; color: #f0f0f0; padding: 20px; border-radius: 8px;">
-  <div class="header" style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px;">
-    <h2 style="margin: 0; color: #ffffff;">Satışlar</h2>
-  </div>
 
-  <p-table [value]="vendingMachines" class="p-datatable-striped" [tableStyle]="{'min-width': '50rem'}" styleClass="custom-table">
-    <ng-template pTemplate="header">
-      <tr>
-        <th style="color: #808080f5;">Ürün Adı</th>
-        <th style="color: #808080f5;">Spiral Numarası</th>
-        <th style="color: #808080f5;">Satış Adet</th>
-        <th style="color: #808080f5;">Zaman</th>
-        <th style="color: #808080f5;">Otomat</th>
-        <th style="color: #808080f5;">Ödeme Yöntemi</th>
-        <th style="color: #808080f5;">İndirimli</th>
-        <th style="color: #808080f5;">Satış Fiyatı</th>
-        <th style="color: #808080f5;">Sonuç</th>
-      </tr>
-    </ng-template>
-
-    <ng-template pTemplate="body" let-machine>
-      <tr>
-        <td>{{ machine.productName }}</td>
-        <td>{{ machine.spiralNumber }}</td>
-        <td>{{ machine.salesCount }}</td>
-        <td>{{ machine.time }}</td>
-        <td>{{ machine.machineName }}</td>
-        <td>{{ machine.paymentMethod }}</td>
-        <td [ngStyle]="{color: machine.discount ? '#4caf50' : '#f44336'}">{{ machine.discount ? 'Evet' : 'Hayır' }}</td>
-        <td>{{ machine.salesPrice }} ₺</td>
-        <td>{{ machine.result }}</td>
-      </tr>
-    </ng-template>
+<div class="card">
+  <p-table 
+      [value]="vendingMachines" 
+      styleClass="p-datatable-striped" 
+      [tableStyle]="{'min-width': '50rem'}">
+          <ng-template pTemplate="header">
+              <tr>
+                  <th>Ürün Adı</th>
+                  <th>Spiral Numarası</th>
+                  <th>Satış Adedi</th>
+                  <th>Zaman</th>
+                  <th>Otomat</th>
+                  <th>Ödeme Yöntemi</th>
+                  <th>İndirim</th>
+                  <th>Satış Fiyatı</th>
+                  <th>Sonuç</th>
+              </tr>
+          </ng-template>
+          <ng-template pTemplate="body" let-machine>
+              <tr>
+                <td>{{ machine.productName }}</td>
+                <td>{{ machine.spiralNumber }}</td>
+                <td>{{ machine.salesCount }}</td>
+                <td>{{ machine.time }}</td>
+                <td>{{ machine.machineName }}</td>
+                <td>{{ machine.paymentMethod }}</td>
+                <td [ngStyle]="{color: machine.discount ? '#4caf50' : '#f44336'}">{{ machine.discount ? 'Evet' : 'Hayır' }}</td>
+                <td>{{ machine.salesPrice }} ₺</td>
+                <td>{{ machine.result }}</td>
+              </tr>
+          </ng-template>
   </p-table>
 </div>
+
+
+
