@@ -8,6 +8,7 @@ import { NgFor } from '@angular/common';
 import { VendingMachineService } from '../vendingmachine.service';
 import { BreadcrumbModule } from 'primeng/breadcrumb';
 import { MenuItem } from 'primeng/api';
+import { DashboardComponent } from "../dashboard/dashboard.component";
 
 
 @Component({
@@ -15,7 +16,8 @@ import { MenuItem } from 'primeng/api';
   standalone: true,
   templateUrl: './report.component.html',
   styleUrls: ['./report.component.css'],
-  imports: [BreadcrumbModule,CalendarModule, FormsModule, FontAwesomeModule, NgFor] // Gerekli modülleri buraya ekledik
+  imports: [BreadcrumbModule, CalendarModule, FormsModule, FontAwesomeModule, NgFor, DashboardComponent] // Gerekli modülleri buraya ekledik
+ // Gerekli modülleri buraya ekledik
 })
 export class ReportComponent implements OnInit {
   faCalculator = faCalculator; // Hesap makinesi ikonu

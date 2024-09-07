@@ -6,13 +6,17 @@ import $ from 'jquery';  // Import jQuery
 import { environment } from './environment/environment';
 import { importProvidersFrom } from '@angular/core';
 import { BrowserAnimationsModule, provideAnimations } from '@angular/platform-browser/animations';
+import { provideRouter } from '@angular/router';
+import { appRoutes } from './app/app.routes';
 
 
 
 
 const appConfig = {
   providers: [
-    provideHttpClient(withFetch()) // HttpClient'i sağlamak için kullanın
+    provideRouter(appRoutes),  // Yönlendirme sağlayıcısı
+    provideHttpClient(withFetch()), // HttpClient'i sağlamak için
+    provideAnimations()
   ]
 };
 
@@ -20,5 +24,5 @@ if (environment.production) {
   // Production ortamı için ek yapılandırmalar varsa buraya ekleyebilirsiniz
 }
 
-bootstrapApplication(AppComponent, appConfig, )
+bootstrapApplication(AppComponent, appConfig)
   .catch(err => console.error(err));
